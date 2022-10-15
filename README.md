@@ -1,40 +1,32 @@
 
-# I2C Communication
+# UART Communication
 
-I2C (Inter-Integrated Circuit, eye-squared-C), alternatively known as I2C or IIC, is a synchronous, multi-controller/multi-target (controller/target), packet switched, single-ended, serial communication bus invented in 1982 by Philips Semiconductors.
-
-## Main Points of I2C
-#### Range of I2C is upto 1200 meters.
-#### Clock Frequency of I2C is 0 to 1 MHz.
-#### It is also synchronous. 
-I2C combines the best features of SPI and UARTs. With I2C, you can connect multiple slaves to a single master (like SPI) and you can have multiple masters controlling single, or multiple slaves. This is really useful when you want to have more than one microcontroller logging data to a single memory card or displaying text to a single LCD.
+In UART communication, two UARTs communicate directly with each other. The transmitting UART converts parallel data from a controlling device like a CPU into serial form, transmits it in serial to the receiving UART, which then converts the serial data back into parallel data for the receiving device. Only two wires are needed to transmit data between two UARTs. Data flows from the Tx pin of the transmitting UART to the Rx pin of the receiving UART:
 
 
 
 
+UARTs transmit data asynchronously, which means there is no clock signal to synchronize the output of bits from the transmitting UART to the sampling of bits by the receiving UART. Instead of a clock signal, the transmitting UART adds start and stop bits to the data packet being transferred. These bits define the beginning and end of the data packet so the receiving UART knows when to start reading the bits.
+
+When the receiving UART detects a start bit, it starts to read the incoming bits at a specific frequency known as the baud rate. Baud rate is a measure of the speed of data transfer, expressed in bits per second (bps). Both UARTs must operate at about the same baud rate. The baud rate between the transmitting and receiving UARTs can only differ by about 10% before the timing of bits gets too far off.
 
 
-![Circuit Design of SPI Communication](https://drive.google.com/file/d/16yU6Hl0TB5Qi9b79b5YyGKC_BUSb0qld/view?usp=sharing)
 
 
+## Important points about UART
 
-
-## I2C Protocol Design
+#### This Device is Asynchronus.
+#### UART has a max communication distance of 15 meters. 
+#### UART leverages shift registers to convert serial communication to parallel communication. 
+#### Maximum Frequencies used in UART is 45.1584 MHz.
 
 ![Basic SPI](https://drive.google.com/file/d/1wq5i45U2MoEz7pgVW7xK5hnE_gONwKwV/view?usp=sharing)
-
-#### SDA (Serial Data) – The line for the master and slave to send and receive data.
-
-#### SCL (Serial Clock) – The line that carries the clock signal.
-
-I2C is a serial communication protocol, so data is transferred bit by bit along a single wire (the SDA line)
-Like SPI, I2C is synchronous, so the output of bits is synchronized to the sampling of bits by a clock signal shared between the master and the slave. The clock signal is always controlled by the master.
 
 
 ## For Further Reference Read this 
 
-[I2C Communication Article](https://www.circuitbasics.com/basics-of-the-i2c-communication-protocol/)
+[UART Communication Article](https://www.circuitbasics.com/basics-uart-communication/)
 
-[I2C Protocol Github](https://github.com/topics/i2c-protocol)
+[UART Protocol Github](https://github.com/topics/uart-protocol)
 
-[Tinkercad Simulation By Me](https://www.tinkercad.com/embed/9Bdo4Jb6NSf)
+[Tinkercad Simulation By Me](https://www.tinkercad.com/embed/aag5JaoGFNh
