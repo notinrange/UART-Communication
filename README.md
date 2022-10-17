@@ -31,4 +31,4 @@ When the receiving UART detects a start bit, it starts to read the incoming bits
 
 [UART Protocol Github](https://github.com/topics/uart-protocol)
 
-[Tinkercad Simulation By Me](https://www.tinkercad.com/embed/aag5JaoGFNh
+[Tinkercad Simulation By Me](https://www.tinkercad.com/embed/aag5JaoGFNh)
